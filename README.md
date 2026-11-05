@@ -25,6 +25,8 @@ Se conservan las decisiones solicitadas en la conversación: métodos estáticos
 
 ## Verificación
 
+Después de clonar, instale PHP 8 con extensiones PDO MySQL, DOM, mbstring y XML. Para PHP 8.2 de XAMPP use [PHPUnit 11 PHAR oficial](https://phar.phpunit.de/phpunit-11.phar), guardándolo en la raíz como phpunit.phar; el binario no se publica en Git. Para la suite unitaria no se necesita base de datos ni env.php. Para los scripts HTTP e integración sí se requieren Apache, la base importada y env.php copiado del ejemplo.
+
 Desde la raíz, con XAMPP en `C:/xampp`:
 
 ```powershell
