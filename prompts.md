@@ -1,22 +1,95 @@
-# Registro de uso de IA
+# Prompts y pasos de la guía S11
 
-Herramienta utilizada en esta conversación: Codex. Registro reconstruido a partir de mensajes visibles, no un historial de trabajo manual ni de Kiro. Las decisiones indicadas son resultados observables; la valoración personal del estudiante debe completarse por él.
+Registro limitado a las actividades P1–P12 de la guía de laboratorio 11. Los enunciados siguientes resumen los prompts de la guía; no son una transcripción de sesiones anteriores. Los pasos describen el trabajo comprobable en los archivos y distinguen las actividades pendientes.
 
-| ID | Pedido registrado | Resultado y decisión observable |
-|---|---|---|
-| P1 | Documento base | Ya existía documents/d0.md al revisar el proyecto. No se verificó su autoría manual. D0.md en raíz organiza ese contenido y conserva literalmente R1–R4. |
-| P2–P3 | Requisitos y diseño | Ya existían en .kiro/specs/bodega-ventas. No hay registro visible de los prompts originales de Kiro. Se actualizaron y copiaron a raíz al detectar contradicciones con la guía. |
-| P4 | «Lee design.md. Genera O MODIFICA O MEJORA el archivo sql/bodega.sql…» | Se conservaron tipos y claves del diseño existente y seis productos. Se añadieron UTF-8 y reimportación sin sobrescribir inventario. |
-| P5 | «Lee design.md y sql/bodega.sql. Genera la aplicación PHP 8 sin framework…» | Se implementaron clases estáticas, repositorio único, múltiples líneas, PDO, transacción y Bootstrap. |
-| P6 | «Genera una lista de cotejo de 8 pruebas manuales… No ejecutes nada; solo la tabla» | Se entregó la tabla. Después el usuario pidió «REALIZA LAS PRUEBAS (LAS 8) Y VVERIDICA»: se ejecutaron por HTTP y base de datos, sin afirmar ejecución visual manual. |
-| P7 | «Revisa src/ServicioVenta.php… muévelo a ServicioVenta sin cambiar el comportamiento» | Se centralizaron validaciones y cálculos. Se mantuvo R4 en el repositorio por requerir persistencia. |
-| A1 | «Mejora todo pero ten en cuenta lo que no debes hacer…» | Mejoras de borrador, búsqueda, validación y documentación. Pedido amplio previo a la lectura de la guía; no se presenta como prompt objetivo del laboratorio. |
-| A2 | «mejora el diseño de eso» y «agégale gráficos de barra u otros…» | Catálogo con paleta verde y crema y gráficos de inventario actual, sin librerías JS adicionales ni reportes históricos. |
-| A3 | «lee los requeriments, design… mejora lo que tengas que mejorar» | Se completaron alta y edición de productos, errores por campo y pruebas. |
-| S11 | «Revisa donde voy y haz lo que me falta, dejalo todo perfecto» | Se auditó la guía adjunta. Se separaron cambios técnicos de evidencias personales no realizadas; no se inventaron commits de TDD ni firmas. |
-| S11-R2 | Pregunta de aclaración sobre la regla global o por línea | Respuesta literal del usuario: «Aplicar la guía: descuento por venta». Se cambió R2 global y se actualizaron servicio, vista y expectativas de pruebas. |
-| S11-Git | Solicitud de URL del repositorio y hosting | Usuario proporcionó https://github.com/HenryDiaz10/bodega-diaz-tasayco.git. No se proporcionó URL pública de hosting. |
+## P1 Documento base
 
-## Revisión individual pendiente
+**Actividad de la guía:** redactar D0.md con problema, usuarios, alcance, reglas R1–R4 y restricciones técnicas. La guía reserva esta redacción al estudiante.
 
-Cada integrante debe agregar su regla elegida, el test que escribió a mano, prompts realmente usados durante su ciclo TDD, cambios propios y por qué los aceptó. No existe en esta conversación un P8 o P9 escrito y ejecutado por el estudiante antes de la implementación; no se reconstruye esa evidencia retrospectivamente.
+**Pasos comprobados:** se revisó documents/d0.md, se organizó D0.md en la raíz y se conservaron literalmente las cuatro reglas de la guía.
+
+**Resultado:** documento disponible. La autoría manual inicial no está acreditada por este registro.
+
+## P2 Requisitos
+
+**Resumen del prompt:** actuar como analista de sistemas y generar requirements.md a partir de D0.md, con un máximo de cinco historias, criterios EARS y referencias a R1–R4, sin autenticación ni reportes.
+
+**Pasos comprobados:** se revisaron los requisitos existentes, se mantuvieron cinco historias y se alineó R2 con el descuento sobre toda la venta. Se sincronizaron los archivos de raíz y .kiro/specs/bodega-ventas/.
+
+**Resultado:** requirements.md actualizado. No se dispone del registro de la sesión original de elaboración de requisitos.
+
+## P3 Diseño
+
+**Resumen del prompt:** generar design.md con arquitectura de tres capas, ServicioVenta sin HTML ni SQL, RepositorioMySQL con PDO, las tres tablas y un diagrama Mermaid de registrar venta.
+
+**Pasos comprobados:** se documentaron presentación, negocio y datos; se describió el esquema efectivo; se añadió la secuencia con validación, bloqueo, commit y rollback. Se conservaron métodos estáticos y un repositorio único.
+
+**Resultado:** design.md actualizado y sincronizado. Las diferencias del esquema respecto al cuadro resumido de la guía están declaradas en el diseño.
+
+## P4 Script de base de datos
+
+**Resumen del prompt:** leer design.md y generar sql/bodega.sql para MySQL con base bodega, tres tablas, claves y seis productos peruanos con los precios y existencias indicados, sin procedimientos ni triggers.
+
+**Pasos comprobados:** se revisaron tipos y claves; se mantuvieron los seis productos y uno sin stock; se configuró utf8mb4 y se verificó que reimportar las semillas no sobrescriba precio ni stock existentes.
+
+**Resultado:** sql/bodega.sql y prueba tests/semillas.php disponibles. Ejecución verificada en MariaDB de XAMPP.
+
+## P5 Aplicación PHP
+
+**Resumen del prompt:** implementar la estructura config/, src/, index.php, venta.php y guardar_venta.php en PHP 8 sin framework, con métodos estáticos de negocio, PDO, varias líneas de venta y Bootstrap desde CDN.
+
+**Pasos comprobados:** se separaron las capas; se implementó la conexión configurable; se incorporaron formulario, validaciones, cálculo global, persistencia preparada y actualización atómica del stock.
+
+**Resultado:** aplicación local operativa. Los datos enviados por el formulario se validan en el servidor y los precios se obtienen de la base bajo bloqueo.
+
+## P6 Lista de cotejo manual
+
+**Resumen del prompt:** producir una tabla de ocho pruebas con acción en pantalla, entrada y resultado esperado, incluyendo stock exacto, exceso de una unidad, subtotales 100,00 y 100,01 y cantidades 0 y -1; sin ejecutarlas al generar la tabla.
+
+**Pasos comprobados:** se preparó la lista en evidencias/lista_manual.md. Por separado se ejecutaron ocho casos HTTP y se comprobaron sus efectos en la base, registrados en tests/resultados_8.md.
+
+**Resultado:** ocho casos automatizados aprobados. La ejecución visual manual y su número de fallos siguen pendientes de registro.
+
+## P7 Refactorización
+
+**Resumen del prompt:** mover cálculos y validaciones a ServicioVenta sin cambiar el comportamiento, sin echo, HTML, PDO ni sesiones; listar firmas y reglas.
+
+**Pasos comprobados:** se centralizaron normalización, validación de cantidades, stock acumulado y cálculos. Se mantuvieron consultas y transacción en RepositorioMySQL. Se ejecutaron pruebas de regresión.
+
+**Resultado:** ServicioVenta es comprobable sin base de datos; las responsabilidades están descritas en design.md.
+
+## P8 TDD rojo
+
+**Resumen del prompt:** revisar únicamente la sintaxis de un test escrito a mano antes de la implementación, sin modificar su aserción ni implementar src/.
+
+**Estado:** pendiente de evidencia individual. No hay registro de un test manual anterior a su implementación ni de una ejecución roja de ese ciclo. Los fallos de mutaciones no se contabilizan como esta actividad.
+
+## P9 TDD verde y refactor
+
+**Resumen del prompt:** implementar lo mínimo para pasar el test anterior sin modificarlo; después refactorizar manteniendo pruebas y comportamiento.
+
+**Estado:** pendiente como ciclo individual vinculado a P8. La suite actual está verde, pero ese resultado no acredita por sí solo la secuencia rojo → verde → refactor exigida en E1.
+
+## P10 Batería de valores límite
+
+**Resumen del prompt:** generar al menos diez métodos PHPUnit para R1–R3, probando debajo, en y encima del borde, con nombres descriptivos, valores esperados concretos y sin base de datos; indicar casos no cubiertos.
+
+**Pasos comprobados:** se amplió tests/ServicioVentaTest.php con casos de stock, cantidades y descuento; se configuró phpunit.xml y se ejecutó la suite también desde una copia limpia del código.
+
+**Resultado:** 23 pruebas y 1.127 aserciones aprobadas. R4 se verifica por integración; navegador, concurrencia real y hosting no forman parte de la suite unitaria.
+
+## P11 Mutantes sobrevivientes
+
+**Resumen del prompt:** analizar el diff de los tres defectos de la pareja rival, explicar por qué sobrevivieron y agregar únicamente los tests que faltan, sin modificar src/.
+
+**Pasos comprobados de preparación:** se ensayaron tres mutaciones propias en copias aisladas y la suite detectó las tres. Se publicó la rama mutantes con exactamente tres cambios de una línea y sintaxis válida.
+
+**Estado:** el intercambio rival y el análisis P11 siguen pendientes. Los resultados locales están en evidencias/mutantes/ y no representan pruebas contra otra pareja.
+
+## P12 Preparación del despliegue
+
+**Resumen del prompt:** configurar getenv con valores locales de respaldo, crear env.ejemplo.php, ignorar env.php, generar SQL sin CREATE DATABASE ni USE y documentar el despliegue en InfinityFree con rutas relativas.
+
+**Pasos comprobados:** se actualizaron los archivos de configuración y .gitignore; se preparó sql/bodega_produccion.sql; se documentaron los pasos del hosting y se generó un paquete que excluye secretos, pruebas y PHPUnit. Se publicaron main y mutantes en GitHub.
+
+**Resultado:** preparación técnica terminada. Quedan pendientes la URL pública, la venta desde celular con datos móviles y la revisión cruzada firmada.
