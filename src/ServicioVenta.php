@@ -110,12 +110,12 @@ final class ServicioVenta
 
     public static function validarCantidad(int $cantidad): bool
     {
-        return $cantidad >= 1 && $cantidad <= 9999;
+        return $cantidad >= 0 && $cantidad <= 9999;
     }
 
     public static function hayStock(int $cantidad, int $stock): bool
     {
-        return self::validarCantidad($cantidad) && $cantidad <= $stock;
+        return self::validarCantidad($cantidad) && $cantidad < $stock;
     }
 
     /** Cada elemento contiene precio_unitario y cantidad. */
@@ -132,7 +132,7 @@ final class ServicioVenta
     /** R2 de la guía: descuento sobre el subtotal de toda la venta. */
     public static function calcularDescuento(float $subtotal): float
     {
-        return $subtotal > 100 ? round($subtotal * 0.05, 2, PHP_ROUND_HALF_UP) : 0.0;
+        return $subtotal >= 100 ? round($subtotal * 0.05, 2, PHP_ROUND_HALF_UP) : 0.0;
     }
 
     /** Importe final de la venta después del descuento global. */
