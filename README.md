@@ -11,7 +11,7 @@ Si la base se creó antes de agregar el cliente a las ventas, ejecute **una sola
 - El catálogo muestra precios y stock y permite buscar por nombre, con o sin tildes.
 - El formulario admite varias líneas y muestra subtotal, descuento y neto por línea. Si una confirmación falla, «Corregir venta» recupera el pedido con el stock actualizado.
 - R1 permite vender el stock exacto y comprueba el consumo acumulado de productos repetidos.
-- R2 aplica 5 % sobre el subtotal de **toda la venta**, solo si supera S/ 100,00, con redondeo mitad hacia arriba. Este criterio fue confirmado por el usuario al revisar la guía S11. Dos líneas de S/ 60,00 generan descuento S/ 6,00 y total S/ 114,00. Los detalles muestran la parte proporcional del descuento global para conservar el esquema existente; las ventas históricas no se modifican.
+- R2 aplica 5 % sobre el subtotal de **toda la venta**, solo si supera S/ 100,00, con redondeo mitad hacia arriba. Dos líneas de S/ 60,00 generan descuento S/ 6,00 y total S/ 114,00. Los detalles muestran la parte proporcional del descuento global para conservar el esquema existente; las ventas históricas no se modifican.
 - R3 acepta cantidades enteras de 1 a 9999; el servidor rechaza decimales antes de convertirlos.
 - R4 bloquea los productos y guarda venta, detalles y descuento de stock dentro de una transacción. Un fallo revierte todo.
 
@@ -21,7 +21,7 @@ Se mantiene PHP sin framework, Bootstrap por CDN, sin procedimientos almacenados
 
 Desde el catálogo, «Registrar producto» permite crear productos y «Editar» modificar nombre, precio y stock. El servicio devuelve todos los errores de campo; la restricción UNIQUE protege los nombres duplicados. Se acepta coma o punto decimal, sin separadores de miles. Tras guardar se redirige al catálogo con un mensaje de éxito, evitando repetir la escritura al actualizar la página.
 
-Se conservan las decisiones solicitadas en la conversación: métodos estáticos en ServicioVenta y repositorio único RepositorioMySQL, en lugar de los repositorios separados y el constructor por interfaces del diseño inicial. Las reglas de negocio permanecen en el servicio; sesiones y HTML en presentación; SQL y transacciones en el repositorio.
+La arquitectura utiliza métodos estáticos en ServicioVenta y un repositorio único RepositorioMySQL. Las reglas de negocio permanecen en el servicio; sesiones y HTML en presentación; SQL y transacciones en el repositorio.
 
 ## Verificación
 
@@ -59,6 +59,8 @@ Los pasos de importación y subida siguen la [guía oficial de migración de Inf
 
 ## Cobertura y límites de la entrega
 
-Consulte `evidencias/estado_entrega.md` para distinguir verificaciones realizadas de actividades pendientes. No hay evidencia histórica de TDD rojo antes de verde escrita a mano: los tests generados por IA no se presentan como E1. No se ha realizado un intercambio con una pareja rival ni una revisión firmada. No se afirma tener URL pública hasta probarla.
+Consulte `evidencias/estado_entrega.md` para distinguir verificaciones realizadas de actividades pendientes. La evidencia individual E1 del ciclo TDD todavía no está documentada. El intercambio entre parejas, la revisión firmada y la comprobación de la URL pública permanecen pendientes.
+
+El proceso técnico realizado se describe en [Desarrollo y verificación](documents/desarrollo.md), con referencias al código, las pruebas y los commits disponibles.
 
 R4 se comprueba con integración porque requiere base de datos; las pruebas unitarias cubren negocio sin PDO. No están cubiertos por la suite unitaria el navegador, estilos, dos compradores simultáneos, red real del hosting ni funcionamiento desde celular. Hay bloqueos y transacción, pero eso no equivale a una prueba de concurrencia. El desafío n8n de semana 12 es una actividad posterior, no se da por completado en esta entrega S11.

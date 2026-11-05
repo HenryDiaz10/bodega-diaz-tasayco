@@ -4,7 +4,7 @@
 
 - Aplicación local con catálogo, registro y edición de productos y venta de varias líneas.
 - R1 permite igualdad de stock y rechaza exceso; R3 rechaza cero, negativos y decimales antes del cast.
-- R2 global confirmado por el usuario: descuento del 5 % solo cuando la suma de subtotales supera 100,00.
+- R2 global: descuento del 5 % solo cuando la suma de subtotales supera 100,00.
 - ServicioVenta puro, repositorio preparado con transacción, stock bloqueado y rollback probado.
 - 23 pruebas unitarias PHPUnit y al menos diez métodos de valores límite; integración separada.
 - Ensayo local de tres mutaciones de una línea detectadas por la suite. Logs íntegros en mutantes/.

@@ -1,6 +1,6 @@
 # Requisitos de Bodega Doña Rosa
 
-Fuente funcional: D0.md y guía de laboratorio 11. El usuario confirmó aplicar R2 sobre toda la venta el 5 de noviembre de 2026. Este documento sustituye el criterio anterior por línea.
+Fuente funcional: D0.md y guía de laboratorio 11. R2 se aplica al subtotal de toda la venta. Este documento sustituye el criterio anterior por línea.
 
 ## 1 Registrar productos
 Como cajero quiero registrar productos para mantener disponible el catálogo de la bodega.
