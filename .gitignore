@@ -1,0 +1,8 @@
+/config/env.php
+/phpunit.phar
+/.phpunit.cache/
+/.phpunit.result.cache
+/tmp/
+/dist/
+*.log
+.env

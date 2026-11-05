@@ -1,0 +1,38 @@
+PHPUnit 11.5.57 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+
+..F..E.....F..........E                                           23 / 23 (100%)
+
+Time: 00:00.005, Memory: 26.00 MB
+
+There were 2 errors:
+
+1) ServicioVentaTest::testDescuentaSobreTodaLaVentaAunqueCadaLineaNoSupere100
+InvalidArgumentException: Stock insuficiente: hay 5 unidades disponibles
+
+C:\xampp\htdocs\bodega\tmp\mutantes-674265ff6b\src\ServicioVenta.php:80
+C:\xampp\htdocs\bodega\tmp\mutantes-674265ff6b\tests\ServicioVentaTest.php:64
+
+2) ServicioVentaTest::testRepartoDeCentimosNoPierdeDescuentoGlobal
+InvalidArgumentException: Stock insuficiente: hay 1 unidades disponibles
+
+C:\xampp\htdocs\bodega\tmp\mutantes-674265ff6b\src\ServicioVenta.php:80
+C:\xampp\htdocs\bodega\tmp\mutantes-674265ff6b\tests\ServicioVentaTest.php:123
+
+--
+
+There were 2 failures:
+
+1) ServicioVentaTest::testStockInsuficienteYStockExacto
+Failed asserting that false is true.
+
+C:\xampp\htdocs\bodega\tmp\mutantes-674265ff6b\tests\ServicioVentaTest.php:40
+
+2) ServicioVentaTest::testAceptaVentaIgualAlStock
+Failed asserting that false is identical to true.
+
+C:\xampp\htdocs\bodega\tmp\mutantes-674265ff6b\tests\ServicioVentaTest.php:89
+
+ERRORS!
+Tests: 23, Assertions: 921, Errors: 2, Failures: 2.

@@ -1,0 +1,27 @@
+PHPUnit 11.5.57 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+
+....F..F............F..                                           23 / 23 (100%)
+
+Time: 00:00.004, Memory: 26.00 MB
+
+There were 3 failures:
+
+1) ServicioVentaTest::testDescuentoRespetaFronteraYRedondeo
+Failed asserting that 5.0 matches expected 0.0.
+
+C:\xampp\htdocs\bodega\tmp\mutantes-674265ff6b\tests\ServicioVentaTest.php:57
+
+2) ServicioVentaTest::testDescuentoCeroCuandoSubtotalEsExactamente100
+Failed asserting that 5.0 matches expected 0.0.
+
+C:\xampp\htdocs\bodega\tmp\mutantes-674265ff6b\tests\ServicioVentaTest.php:77
+
+3) ServicioVentaTest::testTotal100NoTieneDescuento
+Failed asserting that 95.0 matches expected 100.0.
+
+C:\xampp\htdocs\bodega\tmp\mutantes-674265ff6b\tests\ServicioVentaTest.php:116
+
+FAILURES!
+Tests: 23, Assertions: 978, Failures: 3.

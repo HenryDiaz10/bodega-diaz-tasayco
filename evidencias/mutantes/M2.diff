@@ -1,0 +1,5 @@
+--- src/ServicioVenta.php
++++ copia mutada
+@@
+-$subtotal > 100 ?
++$subtotal >= 100 ?

@@ -1,0 +1,22 @@
+PHPUnit 11.5.57 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.12
+
+.F.............F.......                                           23 / 23 (100%)
+
+Time: 00:00.003, Memory: 26.00 MB
+
+There were 2 failures:
+
+1) ServicioVentaTest::testCantidadesInvalidasSonRechazadasAntesDeCalcular
+Cantidad inválida aceptada
+
+C:\xampp\htdocs\bodega\tmp\mutantes-674265ff6b\tests\ServicioVentaTest.php:28
+
+2) ServicioVentaTest::testRechazaCantidadCero
+Failed asserting that true is identical to false.
+
+C:\xampp\htdocs\bodega\tmp\mutantes-674265ff6b\tests\ServicioVentaTest.php:101
+
+FAILURES!
+Tests: 23, Assertions: 628, Failures: 2.

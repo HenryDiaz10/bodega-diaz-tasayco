@@ -1,0 +1,5 @@
+--- src/ServicioVenta.php
++++ copia mutada
+@@
+-$cantidad >= 1 &&
++$cantidad >= 0 &&

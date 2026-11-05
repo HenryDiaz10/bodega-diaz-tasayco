@@ -1,0 +1,5 @@
+--- src/ServicioVenta.php
++++ copia mutada
+@@
+-$cantidad <= $stock
++$cantidad < $stock
